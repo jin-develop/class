@@ -23,15 +23,16 @@
 
     <style>
         html {
-            
+
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
         }
-        .borders{
-            border:5px solid black;
-            padding:5px;
+
+        .borders {
+            border: 5px solid black;
+            padding: 5px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -39,58 +40,60 @@
         }
 
         /* // 스타일 부분에서 전체화면 크기 조절하는 부분을 모르겠습니다. */
-
-
-
     </style>
     <title>Homework1!</title>
 </head>
 
 <body>
+    <!-- TODO: 숙제 하신 부분에 대해서는 잘 해주셔서 따로 드릴 말씀이 없습니다!
+            다만 스타일 부분에서 전체화면 크기 조절하는 부분을 모르신다는게 어떤 말씀이실까요? -->
+    <div class="wrap">
+        <div class="borders">
+            <img src="http://shopping.phinf.naver.net/main_2124537/21245377200.20191106234228.jpg" width="50%"
+                height=50%>
 
-<div class="wrap">
-<div class="borders">
-    <img src="http://shopping.phinf.naver.net/main_2124537/21245377200.20191106234228.jpg" width="50%" height=50%>
+            <p>
+                <font size="6">양초를 팝니다.</font> 가격:3,000원/개
+                <br>
+                이 양초는 사실 특별한 힘을 가지고 있어요. 양초를 키고 소원을 빌면 짜자잔 뭐든지 이뤄지게 된답니다.
+                하나 사가세요! 대나무 향이 아주 좋아요.
+            </p>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">주문자성함: </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default"
+                    aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">수량: </label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>선택하시오</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">주소: </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default"
+                    aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">전화번호: </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default"
+                    aria-describedby="inputGroup-sizing-default">
+            </div>
 
-    <p>
-        <font size="6">양초를 팝니다.</font> 가격:3,000원/개
-        <br>
-        이 양초는 사실 특별한 힘을 가지고 있어요. 양초를 키고 소원을 빌면 짜자잔 뭐든지 이뤄지게 된답니다.
-        하나 사가세요! 대나무 향이 아주 좋아요.
-    </p>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">주문자성함: </span>
-        </div>
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-    </div>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">수량: </label>
-        </div>
-        <select class="custom-select" id="inputGroupSelect01">
-            <option selected>선택하시오</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-    </div>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">주소: </span>
-        </div>
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-    </div>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-default">전화번호: </span>
-        </div>
-        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
-    </div>
+            <button type="button" class="btn btn-primary">주문하기</button>
 
-    <button type="button" class="btn btn-primary">주문하기</button>
-
-</div>
+        </div>
 
 </body>
 
