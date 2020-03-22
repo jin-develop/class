@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+    <style>
+        html {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .borders {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* // 스타일 부분에서 전체화면 크기 조절하는 부분을 모르겠습니다. */
+    </style>
+    <script>
+        function hey() {
+            let name = $('#name1').val();
+            let count = $('#inputGroupSelect01').val();
+            let address = $('#address1').val();
+            let number = $('#number1').val();
+
+            let tag = number.split('-');
+
+            if (name == '') {
+                alert('이름을 입력하세요');
+                $('#name1').focus();
+            } else if (count == '선택하시오') {
+                alert('수량을 선택하시오');
+                $('#inputGroupSelect01').focus();
+            } else if (address == '') {
+                alert('이메일을 입력하세요');
+                $('#address1').focus();
+            } else if (address.indexOf('@') == -1) {
+                alert('올바른 이메일 형식이 아닙니다.');
+                $('#address1').focus();
+            } else if (address.indexOf('.') == -1) {
+                alert('올바른 이메일 형식이 아닙니다.');
+                $('#address1').focus();
+                // 이부분에서 indexOf를 한번에 같이쓰는 방법을 알고 싶습니다. 
+                // (address.indexOf('@') = -1 || address.indexOf('.') = -1) 이 방법으로 하면 오류가 나던데 틀린건가요?
+            } else if (number == '') {
+                alert('휴대폰 번호를 입력하세요.');
+                $('#number1').focus();
+            } else if ( tag.length != 3) {
+                alert('올바른 휴대폰 형식이 아닙니다./ 예 000-0000-0000');
+                $('#number1').focus();
+            }
+
+            
+
+        }
+
+    </script>
+    <title>Homework2</title>
+</head>
+
+<body>
+    <!-- TODO: 숙제 하신 부분에 대해서는 잘 해주셔서 따로 드릴 말씀이 없습니다!
+            다만 스타일 부분에서 전체화면 크기 조절하는 부분을 모르신다는게 어떤 말씀이실까요? -->
+
+
+    <div class="wrap">
+        <div class="borders" form id="focus_form">
+            <img src="http://shopping.phinf.naver.net/main_2124537/21245377200.20191106234228.jpg" width="50%"
+                height=50%>
+
+            <p>
+                <font size="6">양초를 팝니다.</font> 가격:3,000원/개
+                <br>
+                이 양초는 사실 특별한 힘을 가지고 있어요. 양초를 키고 소원을 빌면 짜자잔 뭐든지 이뤄지게 된답니다.
+                하나 사가세요! 대나무 향이 아주 좋아요.
+            </p>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">주문자성함: </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" id="name1"
+                    aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">수량: </label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect01">
+                    <option selected>선택하시오</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">주소: </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" id="address1"
+                    aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">전화번호: </span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" id="number1"
+                    aria-describedby="inputGroup-sizing-default">
+            </div>
+
+            <button type="button" onclick="hey()" class="btn btn-primary">주문하기</button>
+            <ul id="names-q7">
+                <li>세종대왕</li>
+                <li>임꺽정</li>
+            </ul>
+
+        </div>
+
+</body>
+
+</html>
