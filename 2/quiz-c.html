@@ -20,22 +20,24 @@
 
     <script>
         function q1() {
-            c = $('#input-q1').val();
-            
+            value = $('#input-q1').val();
+            if (value == '') {
+                alert('입력하세요!');
+            } else {
+
+                alert(value);
+            }
             // 1. input-q1의 입력값을 가져온다.
             // 2. 만약 입력값이 빈칸이면 if(입력값=='')
             // 3. alert('입력하세요!') 띄우기
             // 4. alert(입력값) 띄우기
-            if (c == ''){
-                alert('입력하세요!')
-            } else {
-                alert(c);
-            }
-            
-            
+
+
+
         }
 
         function q5() {
+
             // 1. input-q5 값을 가져온다.
             // 2. 만약 가져온 값에 @가 있으면 (indexOf를 이용하기 - 찾아보자!)
             // 3. info.spartacoding@gmail.com -> gmail 만 추출해서
