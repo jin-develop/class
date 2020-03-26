@@ -31,8 +31,12 @@
                         let element = mise_info[i];
                         let gu_name = element['MSRSTE_NM'];
                         let gu_mise = element['IDEX_MVL'];
-                        console.log(gu_name, gu_mise);
-                        let temp_html = '<li>' + gu_name  + ':' +  gu_mise + '</li>';
+                        let gu_more = element['IDEX_NM'];
+                        
+                        if (gu_mise == -99) {
+                            continue;
+                        }
+                        let temp_html = '<li>' + gu_name  + ':' +  gu_mise + ' '+ gu_more +'</li>';
                         $('#names-q1').append(temp_html);
                     }
                 }
