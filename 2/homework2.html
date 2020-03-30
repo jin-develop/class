@@ -38,6 +38,10 @@
             justify-content: center;
         }
 
+        .wrap {
+            width: 400px;
+        }
+
         /* // 스타일 부분에서 전체화면 크기 조절하는 부분을 모르겠습니다. */
     </style>
     <script>
@@ -58,22 +62,57 @@
             } else if (address == '') {
                 alert('이메일을 입력하세요');
                 $('#address1').focus();
-            } else if (address.indexOf('@') == -1) {
-                alert('올바른 이메일 형식이 아닙니다.');
-                $('#address1').focus();
-            } else if (address.indexOf('.') == -1) {
+            } else if (address.indexOf('@') == -1 || address.indexOf('.') == -1) {
                 alert('올바른 이메일 형식이 아닙니다.');
                 $('#address1').focus();
                 // 이부분에서 indexOf를 한번에 같이쓰는 방법을 알고 싶습니다. 
                 // (address.indexOf('@') = -1 || address.indexOf('.') = -1) 이 방법으로 하면 오류가 나던데 틀린건가요?
+                // TODO: 아뇨! 위와 같이 쓰실 수 있습니다.
             } else if (number == '') {
                 alert('휴대폰 번호를 입력하세요.');
                 $('#number1').focus();
             } else if ( tag.length != 3) {
+                // TODO: placeholder 로 올바르게 양식을 지정해주면 더 좋을거 같아요!
                 alert('올바른 휴대폰 형식이 아닙니다./ 예 000-0000-0000');
                 $('#number1').focus();
             }
 
+
+            // TODO: return을 이용하면 보다 깔끔한 코드를 작성할 수 있습니다. 아래처럼요!
+            // if (name == '') {
+            //     alert('이름을 입력하세요');
+            //     $('#name1').focus();
+            //     return;
+            // } 
+            // if (count == '선택하시오') {
+            //     alert('수량을 선택하시오');
+            //     $('#inputGroupSelect01').focus();
+            //     return;
+            // } 
+            // if (address == '') {
+            //     alert('이메일을 입력하세요');
+            //     $('#address1').focus();
+            //     return;
+            // } 
+            // if (address.indexOf('@') == -1 || address.indexOf('.') == -1) {
+            //     alert('올바른 이메일 형식이 아닙니다.');
+            //     $('#address1').focus();
+            //     return;
+            //     // 이부분에서 indexOf를 한번에 같이쓰는 방법을 알고 싶습니다. 
+            //     // (address.indexOf('@') = -1 || address.indexOf('.') = -1) 이 방법으로 하면 오류가 나던데 틀린건가요?
+            //     // TODO: 아뇨! 위와 같이 쓰실 수 있습니다.
+            // } 
+            // if (number == '') {
+            //     alert('휴대폰 번호를 입력하세요.');
+            //     $('#number1').focus();
+            //     return;
+            // } 
+            // if ( tag.length != 3) {
+            //     // TODO: placeholder 로 올바르게 양식을 지정해주면 더 좋을거 같아요!
+            //     alert('올바른 휴대폰 형식이 아닙니다./ 예 000-0000-0000');
+            //     $('#number1').focus();
+            //     return;
+            // }
             
 
         }
@@ -83,8 +122,6 @@
 </head>
 
 <body>
-    <!-- TODO: 숙제 하신 부분에 대해서는 잘 해주셔서 따로 드릴 말씀이 없습니다!
-            다만 스타일 부분에서 전체화면 크기 조절하는 부분을 모르신다는게 어떤 말씀이실까요? -->
 
 
     <div class="wrap">
@@ -118,17 +155,18 @@
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">주소: </span>
+                    <!-- TODO: 레이블이 '주소'라서 집주소인줄 알았습니다!  -->
+                    <span class="input-group-text" id="inputGroup-sizing-default">이메일: </span>
                 </div>
                 <input type="text" class="form-control" aria-label="Default" id="address1"
-                    aria-describedby="inputGroup-sizing-default">
+                    aria-describedby="inputGroup-sizing-default" placeholder="abcd@gmail.com">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">전화번호: </span>
                 </div>
                 <input type="text" class="form-control" aria-label="Default" id="number1"
-                    aria-describedby="inputGroup-sizing-default">
+                    aria-describedby="inputGroup-sizing-default" placeholder="010-1234-5678">
             </div>
 
             <button type="button" onclick="hey()" class="btn btn-primary">주문하기</button>

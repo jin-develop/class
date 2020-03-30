@@ -21,7 +21,7 @@ for song in songs:
     song_name = name[0].text.strip()
     artist = name[1].text
     print('*'*70)
-    print('{}   {}   {}'.format(rank, song_name, artist))
+    print('{}   {}   {}'.format(rank, song_name, artist)) # <- TODO: 굿입니다!
 
 # for song in songs:
 #     name = song.select_one('')
