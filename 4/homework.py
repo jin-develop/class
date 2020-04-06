@@ -37,7 +37,7 @@ def read_user():
     # 1. 저장된 정보를 가져온다.
     users = list(db.users.find({}, {'_id': False}))
     # 2. 리뷰들을 돌려준다.
-    return jsonify({'result':'success', 'msg': '이 요청은 GET!'})
+    return jsonify({'result':'success', 'msg': users})
 
 
 if __name__ == '__main__':

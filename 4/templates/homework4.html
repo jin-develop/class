@@ -19,13 +19,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- 해야할것
             1. 입력 받아서 DB에 저장
             2. 작성이 완료되었다는 알림을 띄어주기 -->
 
     <script>
-        
-        
+        $(document).ready(function () {
+            $('#orders-box').html('');
+            listing();
+        });
+
         function go() {
             // 1. 제목, 저자, 리뷰 내용을 가져옵니다.
             let name = $('#name').val();
@@ -55,10 +61,10 @@
 
 
             data = {
-                'name_give' : name,
-                'count_give' : count,
-                'address_give' : address,
-                'number_give' : number
+                'name_give': name,
+                'count_give': count,
+                'address_give': address,
+                'number_give': number
 
             }
             $.ajax({
@@ -68,30 +74,63 @@
                 success: function (response) {
                     if (response['result'] == 'success') {
                         alert(response['msg']);
+                        window.location.reload();
                     }
-                    
+
                 }
             });
         }
 
-        // 저장이 안된ㅇㅁㄹㄴㅇㄹㄹㄴㅁㅇ
+        function listing() {
+            $.ajax({
+                type: "GET",
+                url: "/users",
+                data: {},
+                success: function (response) {
+                    if (response['result'] == 'success') {
+                        let users = response['msg']
+                        for (let i = 0; i < users.length; i++) {
+                            const element = users[i];
+                            let name = element['name']; 
+                            let count = element['count'];
+                            let address = element['address'];
+                            let number = element['number'];
+
+                            make_user(name, count, address, number);
+                            
+                        }
+                    } else {
+                        alert('정보를 가져오지 못했습니다.');
+                    }
+
+                }
+            });
+        }
+        function make_user(name, count, address, number) {
+            let temp_html = '<tr>\
+                                <td>'+ name +'</td>\
+                                <td>'+ count +'</td>\
+                                <td>'+ address +'</td>\
+                                <td>'+ number +'</td>\
+                            </tr>';
+            $('#orders-box').append(temp_html);
+        }
 
 
-        
-            // 1. 리뷰 목록을 서버에 요청하기
-            // 2. 요청 성공 여부 확인하기
-            // 3. 요청 성공했을 때 리뷰를 올바르게 화면에 나타내기
-        
-        
+
+
+
+
     </script>
 
 
     <style>
-        *{
+        * {
             font-family: 'Song Myung', serif;
         }
+
         html {
-            
+
             display: flex;
             flex-direction: column;
             align-items: center;
